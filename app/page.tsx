@@ -108,8 +108,6 @@ export default function Home() {
                     className="object-cover"
                     priority
                     sizes="(max-width: 768px) 200px, (max-width: 1024px) 300px, 320px"
-                    unoptimized
-                    priority
                   />
                   {/* Overlay Gradient */}
                   <div className="absolute inset-0 bg-gradient-to-t from-blue-500/20 to-transparent" />
