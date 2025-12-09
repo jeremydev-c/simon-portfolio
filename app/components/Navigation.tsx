@@ -32,7 +32,7 @@ export default function Navigation({ activePage = 'home' }: { activePage?: strin
       <nav
         className={`fixed top-0 w-full z-50 transition-all duration-300 ${
           isScrolled
-            ? 'glass-effect shadow-lg shadow-blue-500/10'
+            ? 'glass-effect shadow-lg shadow-emerald-500/10'
             : 'bg-transparent'
         }`}
       >
@@ -40,7 +40,7 @@ export default function Navigation({ activePage = 'home' }: { activePage?: strin
           <div className="flex justify-between items-center">
             <Link href="/" className="flex items-center gap-2 sm:gap-3 group">
               <div>
-                <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-blue-400" />
+                <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-emerald-400" />
               </div>
               <span className="text-base sm:text-lg md:text-xl font-black text-gradient uppercase tracking-tight">Simon Ekipetot</span>
             </Link>
@@ -53,7 +53,7 @@ export default function Navigation({ activePage = 'home' }: { activePage?: strin
                   href={link.href}
                   className={`nav-link ${
                     activePage === link.label.toLowerCase()
-                      ? 'text-blue-400'
+                      ? 'text-emerald-400'
                       : ''
                   }`}
                 >
@@ -65,7 +65,7 @@ export default function Navigation({ activePage = 'home' }: { activePage?: strin
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 sm:p-2.5 text-gray-300 hover:text-blue-400 transition-colors touch-manipulation"
+              className="md:hidden p-2 sm:p-2.5 text-gray-300 hover:text-emerald-400 transition-colors touch-manipulation"
               aria-label="Toggle menu"
               style={{ minWidth: '44px', minHeight: '44px' }}
             >
@@ -95,14 +95,14 @@ export default function Navigation({ activePage = 'home' }: { activePage?: strin
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 h-full w-64 sm:w-72 bg-slate-900 border-l border-blue-500/20 z-50 md:hidden"
+              className="fixed top-0 right-0 h-full w-64 sm:w-72 bg-slate-900 border-l border-emerald-500/20 z-50 md:hidden"
             >
               <div className="p-4 sm:p-6">
                 <div className="flex justify-between items-center mb-6 sm:mb-8">
                   <span className="text-lg sm:text-xl font-black text-gradient uppercase tracking-tight">Menu</span>
                   <button
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="p-2 text-gray-300 hover:text-blue-400 touch-manipulation"
+                    className="p-2 text-gray-300 hover:text-emerald-400 touch-manipulation"
                     style={{ minWidth: '44px', minHeight: '44px' }}
                   >
                     <X className="w-6 h-6" />
@@ -116,8 +116,8 @@ export default function Navigation({ activePage = 'home' }: { activePage?: strin
                       onClick={() => setIsMobileMenuOpen(false)}
                       className={`text-base sm:text-lg py-2 px-3 rounded-lg touch-manipulation ${
                         activePage === link.label.toLowerCase()
-                          ? 'text-blue-400 font-semibold bg-blue-500/10'
-                          : 'text-gray-300 hover:text-blue-400 hover:bg-blue-500/5'
+                          ? 'text-emerald-400 font-semibold bg-emerald-500/10'
+                          : 'text-gray-300 hover:text-emerald-400 hover:bg-emerald-500/5'
                       } transition-colors`}
                       style={{ minHeight: '44px' }}
                     >
@@ -133,4 +133,6 @@ export default function Navigation({ activePage = 'home' }: { activePage?: strin
     </>
   );
 }
+
+
 

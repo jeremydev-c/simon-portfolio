@@ -33,7 +33,7 @@ export default function Contact() {
 
       <section className="pt-32 pb-20 px-4">
         <div className="container mx-auto max-w-6xl">
-          <Link href="/" className="inline-flex items-center gap-2 text-gray-400 hover:text-blue-400 transition-colors mb-8">
+          <Link href="/" className="inline-flex items-center gap-2 text-gray-400 hover:text-emerald-400 transition-colors mb-8">
             <ArrowLeft className="w-4 h-4" />
             <span>Back to Home</span>
           </Link>
@@ -60,7 +60,7 @@ export default function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-slate-800 border border-blue-500/20 rounded-lg focus:border-blue-500 focus:outline-none text-gray-100"
+                    className="w-full px-4 py-3 bg-slate-800 border border-emerald-500/20 rounded-lg focus:border-emerald-500 focus:outline-none text-gray-100"
                   />
                 </div>
                 <div>
@@ -74,7 +74,7 @@ export default function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-slate-800 border border-blue-500/20 rounded-lg focus:border-blue-500 focus:outline-none text-gray-100"
+                    className="w-full px-4 py-3 bg-slate-800 border border-emerald-500/20 rounded-lg focus:border-emerald-500 focus:outline-none text-gray-100"
                   />
                 </div>
                 <div>
@@ -88,7 +88,7 @@ export default function Contact() {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-slate-800 border border-blue-500/20 rounded-lg focus:border-blue-500 focus:outline-none text-gray-100"
+                    className="w-full px-4 py-3 bg-slate-800 border border-emerald-500/20 rounded-lg focus:border-emerald-500 focus:outline-none text-gray-100"
                   />
                 </div>
                 <div>
@@ -102,7 +102,7 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     rows={6}
-                    className="w-full px-4 py-3 bg-slate-800 border border-blue-500/20 rounded-lg focus:border-blue-500 focus:outline-none text-gray-100 resize-none"
+                    className="w-full px-4 py-3 bg-slate-800 border border-emerald-500/20 rounded-lg focus:border-emerald-500 focus:outline-none text-gray-100 resize-none"
                   />
                 </div>
                 <button type="submit" className="btn-primary w-full">
@@ -117,30 +117,30 @@ export default function Contact() {
                 <h3 className="text-2xl font-bold text-gradient mb-6">Contact Information</h3>
                 <div className="space-y-6">
                   <a href="mailto:lochongasimon@gmail.com" className="flex items-start gap-4 group">
-                    <div className="p-3 bg-blue-500/10 rounded-lg group-hover:bg-blue-500/20 transition-colors">
-                      <Mail className="w-6 h-6 text-blue-400" />
+                    <div className="p-3 bg-emerald-500/10 rounded-lg group-hover:bg-emerald-500/20 transition-colors">
+                      <Mail className="w-6 h-6 text-emerald-400" />
                     </div>
                     <div>
                       <h4 className="font-semibold text-gray-200 mb-1">Email</h4>
-                      <p className="text-gray-400 group-hover:text-blue-400 transition-colors">
+                      <p className="text-gray-400 group-hover:text-emerald-400 transition-colors">
                         lochongasimon@gmail.com
                       </p>
                     </div>
                   </a>
                   <a href="tel:0705137509" className="flex items-start gap-4 group">
-                    <div className="p-3 bg-cyan-500/10 rounded-lg group-hover:bg-cyan-500/20 transition-colors">
-                      <Phone className="w-6 h-6 text-cyan-400" />
+                    <div className="p-3 bg-amber-500/10 rounded-lg group-hover:bg-amber-500/20 transition-colors">
+                      <Phone className="w-6 h-6 text-amber-400" />
                     </div>
                     <div>
                       <h4 className="font-semibold text-gray-200 mb-1">Phone</h4>
-                      <p className="text-gray-400 group-hover:text-cyan-400 transition-colors">
+                      <p className="text-gray-400 group-hover:text-amber-400 transition-colors">
                         0705137509
                       </p>
                     </div>
                   </a>
                   <div className="flex items-start gap-4">
-                    <div className="p-3 bg-blue-500/10 rounded-lg">
-                      <MapPin className="w-6 h-6 text-blue-400" />
+                    <div className="p-3 bg-emerald-500/10 rounded-lg">
+                      <MapPin className="w-6 h-6 text-emerald-400" />
                     </div>
                     <div>
                       <h4 className="font-semibold text-gray-200 mb-1">Location</h4>
@@ -157,11 +157,11 @@ export default function Contact() {
               <div className="card">
                 <h3 className="text-xl font-bold text-gradient mb-4">Connect on Social</h3>
                 <div className="flex gap-4">
-                  <a href="#" className="p-4 bg-blue-500/10 hover:bg-blue-500/20 rounded-lg transition-colors">
-                    <Linkedin className="w-6 h-6 text-blue-400" />
+                  <a href="#" className="p-4 bg-emerald-500/10 hover:bg-emerald-500/20 rounded-lg transition-colors">
+                    <Linkedin className="w-6 h-6 text-emerald-400" />
                   </a>
-                  <a href="#" className="p-4 bg-cyan-500/10 hover:bg-cyan-500/20 rounded-lg transition-colors">
-                    <Github className="w-6 h-6 text-cyan-400" />
+                  <a href="#" className="p-4 bg-amber-500/10 hover:bg-amber-500/20 rounded-lg transition-colors">
+                    <Github className="w-6 h-6 text-amber-400" />
                   </a>
                 </div>
               </div>
@@ -174,4 +174,6 @@ export default function Contact() {
     </div>
   );
 }
+
+
 

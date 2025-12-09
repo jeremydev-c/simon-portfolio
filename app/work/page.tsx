@@ -34,7 +34,7 @@ export default function Work() {
 
       <section className="pt-32 pb-20 px-4">
         <div className="container mx-auto max-w-6xl">
-          <Link href="/" className="inline-flex items-center gap-2 text-gray-400 hover:text-blue-400 transition-colors mb-8">
+          <Link href="/" className="inline-flex items-center gap-2 text-gray-400 hover:text-emerald-400 transition-colors mb-8">
             <ArrowLeft className="w-4 h-4" />
             <span>Back to Home</span>
           </Link>
@@ -52,23 +52,23 @@ export default function Work() {
                 key={project.id}
                 className="card group cursor-pointer"
               >
-                <div className="w-full h-48 bg-gradient-to-br from-blue-600 via-cyan-600 to-blue-500 mb-6 rounded-lg relative overflow-hidden">
+                <div className="w-full h-48 bg-gradient-to-br from-emerald-600 via-amber-600 to-emerald-500 mb-6 rounded-lg relative overflow-hidden">
                   <div className="absolute inset-0 bg-charcoal/30 group-hover:bg-charcoal/10 transition-colors flex items-center justify-center">
                     <Sparkles className="w-16 h-16 text-white opacity-50 group-hover:opacity-75 transition-opacity" />
                   </div>
                   <div className="absolute top-4 right-4">
-                    <span className="px-3 py-1 bg-blue-600 text-white text-xs font-semibold uppercase">
+                    <span className="px-3 py-1 bg-emerald-600 text-white text-xs font-semibold uppercase">
                       {project.category}
                     </span>
                   </div>
                 </div>
-                <h3 className="text-2xl font-bold text-gradient mb-3 group-hover:text-blue-400 transition-colors">
+                <h3 className="text-2xl font-bold text-gradient mb-3 group-hover:text-emerald-400 transition-colors">
                   {project.title}
                 </h3>
                 <p className="text-gray-400 mb-4">{project.description}</p>
                 <Link
                   href={`/work/${project.id}`}
-                  className="inline-flex items-center gap-2 text-blue-400 font-semibold hover:text-cyan-400 transition-colors"
+                  className="inline-flex items-center gap-2 text-emerald-400 font-semibold hover:text-amber-400 transition-colors"
                 >
                   View Project
                   <ArrowRight className="w-4 h-4" />
@@ -83,4 +83,6 @@ export default function Work() {
     </div>
   );
 }
+
+
 

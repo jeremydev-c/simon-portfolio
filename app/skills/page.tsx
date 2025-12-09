@@ -26,7 +26,7 @@ export default function Skills() {
       id: 'bi-analytics',
       title: "BI & Analytics",
       icon: BarChart3,
-      color: "from-blue-500 to-cyan-600",
+      color: "from-emerald-500 to-amber-600",
       skills: [
         { name: "PowerBI", level: 95, description: "Building automated dashboards and KPI monitoring systems" },
         { name: "Excel PowerQuery", level: 90, description: "Advanced data manipulation and transformation" },
@@ -39,7 +39,7 @@ export default function Skills() {
       id: 'programming',
       title: "Programming & Scripting",
       icon: Code,
-      color: "from-cyan-500 to-blue-600",
+      color: "from-amber-500 to-emerald-600",
       skills: [
         { name: "Python", level: 85, description: "Data automation, scripting, and analysis" },
         { name: "SQL", level: 90, description: "Database queries, data extraction, and manipulation" },
@@ -51,7 +51,7 @@ export default function Skills() {
       id: 'data-collection',
       title: "Data Collection Tools",
       icon: Database,
-      color: "from-blue-600 to-cyan-500",
+      color: "from-emerald-600 to-amber-500",
       skills: [
         { name: "KOBO Toolbox", level: 95, description: "Form design, logic setup, and data collection" },
         { name: "ODK (OpenDataKit)", level: 92, description: "Digital data collection and management" },
@@ -63,7 +63,7 @@ export default function Skills() {
       id: 'data-management',
       title: "Data Management",
       icon: Server,
-      color: "from-cyan-600 to-blue-500",
+      color: "from-amber-600 to-emerald-500",
       skills: [
         { name: "Data Cleaning", level: 95, description: "Ensuring accuracy and consistency across systems" },
         { name: "Data Validation", level: 93, description: "Identifying irregularities and quality issues" },
@@ -76,7 +76,7 @@ export default function Skills() {
       id: 'statistical',
       title: "Statistical Analysis",
       icon: Brain,
-      color: "from-blue-500 to-cyan-600",
+      color: "from-emerald-500 to-amber-600",
       skills: [
         { name: "SPSS", level: 85, description: "Statistical analysis and data processing" },
         { name: "STATA", level: 80, description: "Advanced statistical modeling" },
@@ -88,7 +88,7 @@ export default function Skills() {
       id: 'quality-assurance',
       title: "Quality Assurance",
       icon: Target,
-      color: "from-cyan-500 to-blue-600",
+      color: "from-amber-500 to-emerald-600",
       skills: [
         { name: "Data Quality Control", level: 95, description: "Ensuring high-quality data systems" },
         { name: "Privacy & Compliance", level: 92, description: "Data protection and ethical handling" },
@@ -106,7 +106,7 @@ export default function Skills() {
       <section className="pt-32 pb-20 px-4 relative overflow-hidden">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <motion.div
-            className="absolute top-20 left-10 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl"
+            className="absolute top-20 left-10 w-96 h-96 bg-emerald-500/20 rounded-full blur-3xl"
             animate={{
               scale: [1, 1.2, 1],
               opacity: [0.3, 0.5, 0.3],
@@ -118,7 +118,7 @@ export default function Skills() {
             }}
           />
           <motion.div
-            className="absolute bottom-20 right-10 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl"
+            className="absolute bottom-20 right-10 w-96 h-96 bg-amber-500/20 rounded-full blur-3xl"
             animate={{
               scale: [1, 1.3, 1],
               opacity: [0.3, 0.5, 0.3],
@@ -137,9 +137,9 @@ export default function Skills() {
             <div className="lg:col-span-7">
               <div className="flex items-center gap-3 mb-6">
                 <div>
-                  <Sparkles className="w-10 h-10 text-blue-400" />
+                  <Sparkles className="w-10 h-10 text-emerald-400" />
                 </div>
-                <span className="text-sm text-blue-400 uppercase tracking-widest font-bold">
+                <span className="text-sm text-emerald-400 uppercase tracking-widest font-bold">
                   Technical Expertise
                 </span>
               </div>
@@ -159,11 +159,11 @@ export default function Skills() {
                 style={{ rotate, scale }}
                 className="relative w-64 h-64"
               >
-                <div className="absolute inset-0 border-4 border-blue-500/30 rounded-full shape-diamond glow-orange" />
-                <div className="absolute inset-4 border-4 border-cyan-500/30 rounded-full shape-hexagon" />
-                <div className="absolute inset-8 border-4 border-blue-500/20 rounded-full" />
+                <div className="absolute inset-0 border-4 border-emerald-500/30 rounded-full shape-diamond glow-orange" />
+                <div className="absolute inset-4 border-4 border-amber-500/30 rounded-full shape-hexagon" />
+                <div className="absolute inset-8 border-4 border-emerald-500/20 rounded-full" />
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <Database className="w-16 h-16 text-blue-400" />
+                  <Database className="w-16 h-16 text-emerald-400" />
                 </div>
               </motion.div>
             </div>
@@ -213,7 +213,7 @@ export default function Skills() {
                           <span className="text-gray-200 font-semibold text-sm uppercase tracking-wide">
                             {skill.name}
                           </span>
-                          <span className="text-blue-400 font-bold text-sm">
+                          <span className="text-emerald-400 font-bold text-sm">
                             {skill.level}%
                           </span>
                         </div>
@@ -236,7 +236,7 @@ export default function Skills() {
 
                   {/* Hover Effect Overlay */}
                   {hoveredSkill === category.id && (
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 rounded-2xl pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-amber-500/10 rounded-2xl pointer-events-none" />
                   )}
                 </div>
               );
@@ -254,7 +254,7 @@ export default function Skills() {
                 key={stat.label}
                 className="card text-center group"
               >
-                <stat.icon className="w-10 h-10 text-blue-400 mx-auto mb-3 group-hover:scale-110 transition-transform" />
+                <stat.icon className="w-10 h-10 text-emerald-400 mx-auto mb-3 group-hover:scale-110 transition-transform" />
                 <div className="text-4xl font-black text-gradient mb-2">{stat.value}</div>
                 <div className="text-xs text-gray-400 uppercase tracking-widest">{stat.label}</div>
               </div>
@@ -267,4 +267,6 @@ export default function Skills() {
     </div>
   );
 }
+
+
 

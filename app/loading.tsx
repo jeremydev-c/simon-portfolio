@@ -9,7 +9,7 @@ export default function Loading() {
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
-          className="absolute top-1/4 left-1/4 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-blue-500/20 rounded-full blur-3xl"
+          className="absolute top-1/4 left-1/4 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-emerald-500/20 rounded-full blur-3xl"
           animate={{
             scale: [1, 1.2, 1],
             opacity: [0.3, 0.5, 0.3],
@@ -21,7 +21,7 @@ export default function Loading() {
           }}
         />
         <motion.div
-          className="absolute bottom-1/4 right-1/4 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-cyan-500/20 rounded-full blur-3xl"
+          className="absolute bottom-1/4 right-1/4 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 bg-amber-500/20 rounded-full blur-3xl"
           animate={{
             scale: [1, 1.3, 1],
             opacity: [0.3, 0.5, 0.3],
@@ -48,14 +48,14 @@ export default function Loading() {
             transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
             className="relative"
           >
-            <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full bg-gradient-to-br from-blue-600 to-cyan-600 p-3 sm:p-4 md:p-5 flex items-center justify-center shadow-2xl shadow-blue-500/50">
+            <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full bg-gradient-to-br from-emerald-600 to-amber-600 p-3 sm:p-4 md:p-5 flex items-center justify-center shadow-2xl shadow-emerald-500/50">
               <Database className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 text-white" />
             </div>
           </motion.div>
           
           {/* Pulsing Ring */}
           <motion.div
-            className="absolute inset-0 rounded-full border-4 border-blue-500/30"
+            className="absolute inset-0 rounded-full border-4 border-emerald-500/30"
             animate={{
               scale: [1, 1.3, 1],
               opacity: [0.5, 0.8, 0.5],
@@ -98,7 +98,7 @@ export default function Loading() {
             className="w-full h-1 sm:h-1.5 md:h-2 bg-slate-800 rounded-full overflow-hidden"
           >
             <motion.div
-              className="h-full bg-gradient-to-r from-blue-600 via-cyan-600 to-blue-600 rounded-full"
+              className="h-full bg-gradient-to-r from-emerald-600 via-amber-600 to-emerald-600 rounded-full"
               initial={{ width: 0 }}
               animate={{ width: '100%' }}
               transition={{ duration: 2, ease: "easeInOut" }}
@@ -110,7 +110,7 @@ export default function Loading() {
             {[0, 1, 2].map((index) => (
               <motion.div
                 key={index}
-                className="w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 rounded-full bg-blue-500"
+                className="w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 rounded-full bg-emerald-500"
                 animate={{
                   scale: [1, 1.3, 1],
                   opacity: [0.5, 1, 0.5],
@@ -159,11 +159,11 @@ export default function Loading() {
               }}
             >
               {i % 3 === 0 ? (
-                <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-blue-400/30" />
+                <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-emerald-400/30" />
               ) : i % 3 === 1 ? (
-                <Zap className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-cyan-400/30" />
+                <Zap className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-amber-400/30" />
               ) : (
-                <Database className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-blue-400/30" />
+                <Database className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-emerald-400/30" />
               )}
             </motion.div>
           ))}
@@ -189,5 +189,7 @@ export default function Loading() {
     </div>
   );
 }
+
+
 
 

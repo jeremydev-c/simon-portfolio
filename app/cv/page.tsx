@@ -12,7 +12,7 @@ export default function CVPage() {
 
       <section className="pt-32 pb-20 px-3 sm:px-4 md:px-6 lg:px-8">
         <div className="container mx-auto max-w-6xl">
-          <Link href="/" className="inline-flex items-center gap-2 text-gray-400 hover:text-blue-400 transition-colors mb-8">
+          <Link href="/" className="inline-flex items-center gap-2 text-gray-400 hover:text-emerald-400 transition-colors mb-8">
             <ArrowLeft className="w-4 h-4" />
             <span className="text-sm sm:text-base">Back to Home</span>
           </Link>
@@ -20,12 +20,12 @@ export default function CVPage() {
           {/* Header Section */}
           <div className="text-center mb-8 sm:mb-12 md:mb-16">
             <div className="flex items-center justify-center gap-4 mb-6">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-2xl flex items-center justify-center shadow-2xl shadow-blue-500/50">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-gradient-to-br from-emerald-600 to-amber-600 rounded-2xl flex items-center justify-center shadow-2xl shadow-emerald-500/50">
                 <FileText className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-white" />
               </div>
             </div>
             <h1 className="section-title">Curriculum Vitae</h1>
-            <div className="w-24 sm:w-32 h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent mx-auto mt-3 sm:mt-4" />
+            <div className="w-24 sm:w-32 h-1 bg-gradient-to-r from-transparent via-emerald-500 to-transparent mx-auto mt-3 sm:mt-4" />
             <p className="text-sm sm:text-base md:text-lg text-gray-400 max-w-2xl mx-auto mt-4 sm:mt-6 px-2">
               Download or view my complete CV to learn more about my experience, skills, and qualifications
             </p>
@@ -37,10 +37,10 @@ export default function CVPage() {
               {/* CV Icon/Preview */}
               <div className="flex-shrink-0">
                 <div className="relative">
-                  <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-2xl flex items-center justify-center shadow-2xl shadow-blue-500/50">
+                  <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 bg-gradient-to-br from-emerald-600 to-amber-600 rounded-2xl flex items-center justify-center shadow-2xl shadow-emerald-500/50">
                     <FileText className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 text-white" />
                   </div>
-                  <div className="absolute -top-2 -right-2 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-cyan-500 rounded-full flex items-center justify-center">
+                  <div className="absolute -top-2 -right-2 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-amber-500 rounded-full flex items-center justify-center">
                     <Award className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white" />
                   </div>
                 </div>
@@ -57,11 +57,11 @@ export default function CVPage() {
                   </p>
                   <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 text-xs sm:text-sm text-gray-400">
                     <div className="flex items-center gap-1.5">
-                      <Calendar className="w-4 h-4 text-blue-400" />
+                      <Calendar className="w-4 h-4 text-emerald-400" />
                       <span>Updated: November 2025</span>
                     </div>
                     <div className="flex items-center gap-1.5">
-                      <MapPin className="w-4 h-4 text-cyan-400" />
+                      <MapPin className="w-4 h-4 text-amber-400" />
                       <span>Lodwar, Kenya</span>
                     </div>
                   </div>
@@ -89,21 +89,21 @@ export default function CVPage() {
                 </div>
 
                 {/* Quick Info */}
-                <div className="flex flex-wrap justify-center lg:justify-start gap-4 sm:gap-6 pt-4 sm:pt-6 border-t border-blue-500/20">
+                <div className="flex flex-wrap justify-center lg:justify-start gap-4 sm:gap-6 pt-4 sm:pt-6 border-t border-emerald-500/20">
                   <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-400">
-                    <FileText className="w-4 h-4 text-blue-400" />
+                    <FileText className="w-4 h-4 text-emerald-400" />
                     <span>PDF Format</span>
                   </div>
                   <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-400">
-                    <GraduationCap className="w-4 h-4 text-cyan-400" />
+                    <GraduationCap className="w-4 h-4 text-amber-400" />
                     <span>Full Qualifications</span>
                   </div>
                   <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-400">
-                    <Briefcase className="w-4 h-4 text-blue-400" />
+                    <Briefcase className="w-4 h-4 text-emerald-400" />
                     <span>Work Experience</span>
                   </div>
                   <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-400">
-                    <Award className="w-4 h-4 text-cyan-400" />
+                    <Award className="w-4 h-4 text-amber-400" />
                     <span>Certifications</span>
                   </div>
                 </div>
@@ -116,17 +116,17 @@ export default function CVPage() {
             {/* Contact Info */}
             <div className="card">
               <div className="flex items-center gap-3 mb-4">
-                <div className="p-2 bg-blue-500/20 rounded-lg">
-                  <Mail className="w-5 h-5 text-blue-400" />
+                <div className="p-2 bg-emerald-500/20 rounded-lg">
+                  <Mail className="w-5 h-5 text-emerald-400" />
                 </div>
                 <h3 className="text-lg font-bold text-gradient">Contact</h3>
               </div>
               <div className="space-y-2 text-sm text-gray-300">
-                <a href="mailto:lochongasimon@gmail.com" className="flex items-center gap-2 hover:text-blue-400 transition-colors">
+                <a href="mailto:lochongasimon@gmail.com" className="flex items-center gap-2 hover:text-emerald-400 transition-colors">
                   <Mail className="w-4 h-4" />
                   <span>lochongasimon@gmail.com</span>
                 </a>
-                <a href="tel:0705137509" className="flex items-center gap-2 hover:text-cyan-400 transition-colors">
+                <a href="tel:0705137509" className="flex items-center gap-2 hover:text-amber-400 transition-colors">
                   <Phone className="w-4 h-4" />
                   <span>0705137509</span>
                 </a>
@@ -136,15 +136,15 @@ export default function CVPage() {
             {/* Key Skills */}
             <div className="card">
               <div className="flex items-center gap-3 mb-4">
-                <div className="p-2 bg-cyan-500/20 rounded-lg">
-                  <Award className="w-5 h-5 text-cyan-400" />
+                <div className="p-2 bg-amber-500/20 rounded-lg">
+                  <Award className="w-5 h-5 text-amber-400" />
                 </div>
                 <h3 className="text-lg font-bold text-gradient">Key Skills</h3>
               </div>
               <div className="space-y-2 text-sm text-gray-300">
                 <div className="flex flex-wrap gap-2">
                   {['PowerBI', 'SQL', 'Python', 'Excel', 'Data Analysis'].map((skill) => (
-                    <span key={skill} className="px-2 py-1 bg-blue-500/10 border border-blue-500/30 rounded text-xs text-blue-400">
+                    <span key={skill} className="px-2 py-1 bg-emerald-500/10 border border-emerald-500/30 rounded text-xs text-emerald-400">
                       {skill}
                     </span>
                   ))}
@@ -155,18 +155,18 @@ export default function CVPage() {
             {/* Experience */}
             <div className="card">
               <div className="flex items-center gap-3 mb-4">
-                <div className="p-2 bg-blue-500/20 rounded-lg">
-                  <Briefcase className="w-5 h-5 text-blue-400" />
+                <div className="p-2 bg-emerald-500/20 rounded-lg">
+                  <Briefcase className="w-5 h-5 text-emerald-400" />
                 </div>
                 <h3 className="text-lg font-bold text-gradient">Experience</h3>
               </div>
               <div className="space-y-2 text-sm text-gray-300">
                 <div>
-                  <p className="font-semibold text-blue-400">2+ Years</p>
+                  <p className="font-semibold text-emerald-400">2+ Years</p>
                   <p className="text-xs text-gray-400">Professional Experience</p>
                 </div>
                 <div>
-                  <p className="font-semibold text-cyan-400">Data Analyst</p>
+                  <p className="font-semibold text-amber-400">Data Analyst</p>
                   <p className="text-xs text-gray-400">Current Position</p>
                 </div>
               </div>
@@ -187,5 +187,7 @@ export default function CVPage() {
     </div>
   );
 }
+
+
 
 

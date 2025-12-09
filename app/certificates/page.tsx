@@ -58,14 +58,13 @@ export default function Certificates() {
       issuer: 'Multiple Institutions',
       date: '2019 - 2025',
       type: 'pdf',
-      filename: 'SIMON EKIPETOT DOCUMENTS (1).pdf',
-      description: 'Comprehensive collection of professional certificates and training documents from various institutions, demonstrating continuous professional development in data analysis and technology',
+      filename: 'SIMON_EKIPETOT_DOCUMENTS_CLEAN.pdf',
+      description: 'Comprehensive collection of professional certificates and training documents from various institutions, demonstrating continuous professional development in data analysis and technology (KCPE/KCSE pages removed)',
       topics: [
         'Microsoft PowerBI for Business Intelligence & Data Analytics - AQSKILLS (Jul-Sept 2025)',
         'Data Science Course - Digital Regency (Aug 2025 - Present)',
         'Certificate in Computer Applications - Kenya Institute of Management (2019-2020)',
-        'Additional professional development and training certificates',
-        'Academic and professional credentials'
+        'Additional professional development and training certificates'
       ]
     },
     {
@@ -110,7 +109,7 @@ export default function Certificates() {
 
       <section className="pt-32 pb-20 px-4">
         <div className="container mx-auto max-w-7xl">
-          <Link href="/" className="inline-flex items-center gap-2 text-gray-400 hover:text-blue-400 transition-colors mb-8">
+          <Link href="/" className="inline-flex items-center gap-2 text-gray-400 hover:text-emerald-400 transition-colors mb-8">
             <ArrowLeft className="w-4 h-4" />
             <span>Back to Home</span>
           </Link>
@@ -118,11 +117,11 @@ export default function Certificates() {
           <div className="text-center mb-16">
             <div className="flex items-center justify-center gap-4 mb-6">
               <div>
-                <Award className="w-12 h-12 text-blue-400" />
+                <Award className="w-12 h-12 text-emerald-400" />
               </div>
               <h2 className="section-title">Certificates & Credentials</h2>
             </div>
-            <div className="w-32 h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent mx-auto mt-4" />
+            <div className="w-32 h-1 bg-gradient-to-r from-transparent via-emerald-500 to-transparent mx-auto mt-4" />
             <p className="text-lg text-gray-400 max-w-2xl mx-auto mt-6">
               Professional certifications and training credentials demonstrating expertise in data analysis, 
               business intelligence, and data science.
@@ -137,7 +136,7 @@ export default function Certificates() {
                 className="card transform-3d group h-full flex flex-col"
               >
                 {/* Certificate Header */}
-                <div className="bg-gradient-to-br from-blue-500 to-cyan-600 p-6 rounded-2xl mb-6 relative overflow-hidden">
+                <div className="bg-gradient-to-br from-emerald-500 to-amber-600 p-6 rounded-2xl mb-6 relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16" />
                   <div className="relative z-10">
                     <div className="flex items-center justify-between mb-4">
@@ -159,7 +158,7 @@ export default function Certificates() {
                 <div className="flex-1 flex flex-col">
                   <div className="mb-4">
                     <div className="flex items-center gap-2 text-sm text-gray-400 mb-3">
-                      <GraduationCap className="w-4 h-4 text-blue-400" />
+                      <GraduationCap className="w-4 h-4 text-emerald-400" />
                       <span>{cert.date}</span>
                       {cert.certificateNumber && (
                         <>
@@ -176,18 +175,18 @@ export default function Certificates() {
                   {/* Topics List (for detailed certificates) */}
                   {cert.topics.length > 0 && (
                     <div className="mb-4 flex-1">
-                      <h4 className="text-blue-400 font-bold text-sm mb-2 uppercase tracking-wide">
+                      <h4 className="text-emerald-400 font-bold text-sm mb-2 uppercase tracking-wide">
                         Areas Covered:
                       </h4>
                       <ul className="space-y-1 text-xs text-gray-400">
                         {cert.topics.slice(0, 5).map((topic, idx) => (
                           <li key={idx} className="flex items-start gap-2">
-                            <span className="text-blue-400 mt-1">•</span>
+                            <span className="text-emerald-400 mt-1">•</span>
                             <span>{topic}</span>
                           </li>
                         ))}
                         {cert.topics.length > 5 && (
-                          <li className="text-blue-400 font-semibold">
+                          <li className="text-emerald-400 font-semibold">
                             +{cert.topics.length - 5} more topics
                           </li>
                         )}
@@ -196,7 +195,7 @@ export default function Certificates() {
                   )}
 
                   {/* Certificate Preview/Download */}
-                  <div className="mt-auto pt-4 border-t border-blue-500/20">
+                  <div className="mt-auto pt-4 border-t border-emerald-500/20">
                     {cert.type === 'image' ? (
                       <div className="relative w-full h-48 bg-slate-800 rounded-lg overflow-hidden mb-3">
                         <Image
@@ -210,7 +209,7 @@ export default function Certificates() {
                       </div>
                     ) : (
                       <div className="flex items-center justify-center h-32 bg-slate-800 rounded-lg mb-3">
-                        <FileText className="w-16 h-16 text-blue-400/30" />
+                        <FileText className="w-16 h-16 text-emerald-400/30" />
                       </div>
                     )}
                     <a
@@ -240,7 +239,7 @@ export default function Certificates() {
                 key={stat.label}
                 className="card text-center group"
               >
-                <stat.icon className="w-10 h-10 text-blue-400 mx-auto mb-3 group-hover:scale-110 transition-transform" />
+                <stat.icon className="w-10 h-10 text-emerald-400 mx-auto mb-3 group-hover:scale-110 transition-transform" />
                 <div className="text-4xl font-black text-gradient mb-2">{stat.value}</div>
                 <div className="text-xs text-gray-400 uppercase tracking-widest">{stat.label}</div>
               </div>
@@ -253,5 +252,7 @@ export default function Certificates() {
     </div>
   );
 }
+
+
 
 
