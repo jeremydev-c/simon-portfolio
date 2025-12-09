@@ -19,7 +19,7 @@ export default function CV() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#0a0e27] via-[#1a1f3a] to-[#0a0e27]">
-      <Navigation activePage="cv" />
+      <Navigation />
       <main className="pt-32 px-4 pb-20">
         <div className="container mx-auto max-w-6xl">
           <motion.div

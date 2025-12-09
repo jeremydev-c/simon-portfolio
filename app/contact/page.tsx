@@ -7,7 +7,7 @@ import { Mail, Phone, MapPin } from 'lucide-react';
 export default function Contact() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#0a0e27] via-[#1a1f3a] to-[#0a0e27]">
-      <Navigation activePage="contact" />
+      <Navigation />
       <main className="pt-32 px-4 pb-20">
         <div className="container mx-auto max-w-4xl">
           <motion.div

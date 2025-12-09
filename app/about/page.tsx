@@ -8,7 +8,7 @@ import { GraduationCap, Briefcase, Award, CheckCircle2, Target, Users, Shield } 
 export default function About() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#0a0e27] via-[#1a1f3a] to-[#0a0e27]">
-      <Navigation activePage="about" />
+      <Navigation />
       <main className="pt-32 px-4 pb-20">
         <div className="container mx-auto">
           <motion.div
