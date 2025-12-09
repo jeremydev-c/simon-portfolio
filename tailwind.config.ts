@@ -9,15 +9,19 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: "rgb(var(--primary) / <alpha-value>)",
-        secondary: "rgb(var(--secondary) / <alpha-value>)",
-        accent: "rgb(var(--accent) / <alpha-value>)",
+        primary: {
+          DEFAULT: "#0a0e27",
+          light: "#1a1f3a",
+        },
+        accent: {
+          DEFAULT: "#14b8a6",
+          light: "#5eead4",
+        },
       },
     },
   },
   plugins: [],
 };
+
 export default config;
-
-
 

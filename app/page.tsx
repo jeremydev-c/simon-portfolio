@@ -1,302 +1,367 @@
 'use client';
 
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef, useEffect, useState } from 'react';
-import { 
-  Sparkles, Database, Code, TrendingUp, BarChart3, Award, 
-  Mail, Phone, MapPin, GraduationCap, Briefcase, Linkedin, 
-  Github, ArrowRight, Zap, Rocket, Layers, ArrowDown
-} from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Database, BarChart3, TrendingUp, Award, Zap, Code, Mail, Phone, MapPin, ArrowRight, Shield } from 'lucide-react';
 import Link from 'next/link';
-import Navigation from './components/Navigation';
-import ScrollToTop from './components/ScrollToTop';
 import Image from 'next/image';
+import Navigation from './components/Navigation';
 
 export default function Home() {
-  const heroRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ["start start", "end start"]
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-
   return (
-    <div className="min-h-screen bg-warm-gradient particle-bg">
-        <Navigation activePage="home" />
+    <div className="min-h-screen bg-gradient-to-br from-[#0a0e27] via-[#1a1f3a] to-[#0a0e27]">
+      <Navigation />
 
-      {/* Hero Section - Full Screen with Parallax */}
-      <section ref={heroRef} className="min-h-screen flex items-center justify-center px-3 sm:px-4 md:px-6 lg:px-8 py-12 sm:py-16 md:py-20 lg:py-24 relative overflow-hidden">
-        {/* Background Elements */}
+      {/* Hero Section */}
+      <section 
+        className="pt-32 pb-20 px-4 relative overflow-hidden"
+        aria-label="Hero section"
+      >
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-1/4 left-1/4 w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 bg-emerald-500/20 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 bg-amber-500/20 rounded-full blur-3xl" />
+          <div className="absolute top-20 left-10 w-72 h-72 bg-teal-500/20 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-teal-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
         </div>
-
-        <div className="container mx-auto max-w-7xl relative z-10 px-2 sm:px-4">
-          {/* Asymmetric Grid Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 md:gap-10 lg:gap-12 items-center">
-            {/* Left: Main Content - Takes 7 columns */}
-            <div className="lg:col-span-7 space-y-4 sm:space-y-6 md:space-y-8 text-center lg:text-left">
-              <div className="flex items-center justify-center lg:justify-start gap-2 sm:gap-3 md:gap-4">
-                <div>
-                  <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-emerald-400" />
-                </div>
-                <span className="text-xs sm:text-sm md:text-base text-emerald-400 uppercase tracking-[0.1em] sm:tracking-[0.15em] md:tracking-[0.2em] font-bold">
+        
+        <div className="container mx-auto max-w-6xl relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left: Content */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              {/* Tagline */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="mb-6"
+              >
+                <p className="text-sm md:text-base text-teal-400 uppercase tracking-widest font-semibold">
                   Data Analyst & Quality Assurance
-                </span>
-              </div>
-
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-9xl font-black text-gradient leading-[0.9]">
-                SIMON
-                <br />
-                <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl">EKIPETOT</span>
-              </h1>
-
-              <div className="space-y-3 sm:space-y-4">
-                <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-200 font-light leading-relaxed">
-                  Transforming <span className="text-emerald-400 font-bold">Data</span> Into
-                  <br />
-                  <span className="text-gradient font-bold">Actionable Insights</span>
                 </p>
-                <p className="text-sm sm:text-base md:text-lg text-gray-400 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                  Innovative and analytical Data Analyst, Quality Assurance and Data Scientist with 
-                  over 2 years of experience in data management, analysis, and program performance 
-                  monitoring. Skilled in PowerBI, SQL, Python, and Excel.
-                </p>
-              </div>
+              </motion.div>
 
-              <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 justify-center lg:justify-start">
-                <Link href="/work" className="btn-primary group">
+              {/* Name - Split across two lines */}
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight"
+              >
+                <span className="block text-gradient">SIMON</span>
+                <span className="block text-gradient">EKIPETOT</span>
+              </motion.h1>
+
+              {/* Tagline */}
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="text-xl md:text-2xl lg:text-3xl text-gray-300 mb-6 font-light"
+              >
+                Transforming Data Into<br />Actionable Insights
+              </motion.p>
+
+              {/* Description */}
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="text-lg text-gray-400 mb-8 leading-relaxed"
+              >
+                Innovative and analytical Data Analyst, Quality Assurance and Data Scientist with over 2 years of experience in data management, analysis, and program performance monitoring. Skilled in PowerBI, SQL, Python, and Excel.
+              </motion.p>
+
+              {/* CTA Buttons */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                className="flex gap-4 flex-wrap mb-12"
+              >
+                <Link href="/work" className="btn-primary">
                   Explore Work
-                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 inline group-hover:translate-x-1 transition-transform" />
                 </Link>
                 <Link href="/contact" className="btn-secondary">
                   Get In Touch
                 </Link>
-              </div>
+              </motion.div>
+            </motion.div>
 
-              {/* Quick Stats - Horizontal */}
-              <div className="grid grid-cols-3 gap-3 sm:gap-4 pt-6 sm:pt-8">
-                {[
-                  { icon: Award, value: '2+', label: 'Years' },
-                  { icon: Zap, value: '100%', label: 'Quality' },
-                  { icon: Rocket, value: '15+', label: 'Tools' },
-                ].map((stat) => (
-                  <div key={stat.label} className="text-center">
-                    <stat.icon className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-400 mx-auto mb-1 sm:mb-2" />
-                    <div className="text-xl sm:text-2xl font-black text-gradient">{stat.value}</div>
-                    <div className="text-[10px] sm:text-xs text-gray-400 uppercase tracking-widest">{stat.label}</div>
-                  </div>
-                ))}
+            {/* Right: Profile Photo */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="flex justify-center"
+            >
+              <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-teal-500/30 shadow-2xl shadow-teal-500/20">
+                <Image
+                  src="/simon-photo.jpeg"
+                  alt="Simon Ekipetot"
+                  fill
+                  className="object-cover"
+                  unoptimized
+                  priority
+                />
               </div>
-            </div>
+            </motion.div>
+          </div>
 
-            {/* Right: Profile Image - Takes 5 columns with unique styling */}
-            <div className="lg:col-span-5 flex justify-center lg:justify-end order-first lg:order-last">
-              <div className="relative">
-                {/* Glowing Background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/30 to-amber-500/30 rounded-full blur-3xl scale-150" />
-                
-                {/* Main Image Container */}
-                <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-80 lg:h-80 rounded-full overflow-hidden border-2 sm:border-4 border-emerald-500/50 shadow-2xl glow-orange">
-                  <Image
-                    src="/simon-photo.jpeg"
-                    alt="Simon Ekipetot"
-                    fill
-                    className="object-cover"
-                    priority
-                    sizes="(max-width: 768px) 200px, (max-width: 1024px) 300px, 320px"
-                  />
-                  {/* Overlay Gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-emerald-500/20 to-transparent" />
+          {/* Stats */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="grid grid-cols-3 gap-8 max-w-2xl mx-auto mt-16 relative"
+          >
+              <div className="text-center">
+                <div className="text-4xl md:text-5xl font-bold text-teal-400 mb-2">2+</div>
+                <div className="text-sm text-gray-400 uppercase tracking-wider">Years</div>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl md:text-5xl font-bold text-teal-400 mb-2">100%</div>
+                <div className="text-sm text-gray-400 uppercase tracking-wider">Quality</div>
+              </div>
+              <div className="text-center relative">
+                <div className="absolute -left-4 top-0 text-xs text-gray-500 uppercase tracking-widest hidden md:block" style={{ writingMode: 'vertical-rl' }}>
+                  Scroll
                 </div>
+                <div className="text-4xl md:text-5xl font-bold text-teal-400 mb-2">15+</div>
+                <div className="text-sm text-gray-400 uppercase tracking-wider">Tools</div>
               </div>
-            </div>
-          </div>
-
-          {/* Scroll Indicator */}
-          <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2">
-            <span className="text-xs text-gray-400 uppercase tracking-widest">Scroll</span>
-            <ArrowDown className="w-6 h-6 text-emerald-400" />
-          </div>
+            </motion.div>
         </div>
       </section>
 
-      {/* About Section - Diagonal Layout */}
-      <section className="section-diagonal py-12 sm:py-16 md:py-24 lg:py-32 px-3 sm:px-4 md:px-6 lg:px-8 bg-slate-900/30">
-        <div className="container mx-auto max-w-7xl">
-          <div className="text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20">
-            <h2 className="section-title">About Me</h2>
-            <div className="w-24 sm:w-32 h-1 bg-gradient-to-r from-transparent via-emerald-500 to-transparent mx-auto mt-3 sm:mt-4" />
-          </div>
+      {/* About Me Section */}
+      <section className="section px-4">
+        <div className="container mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient">About Me</h2>
+            <p className="text-xl text-gray-400">Professional Journey</p>
+          </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12">
-            {/* Left Card - Tilted */}
-            <div className="card-tilt">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="p-3 bg-gradient-to-br from-emerald-500 to-amber-600 rounded-xl">
-                  <Briefcase className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-3xl font-black text-gradient uppercase">Professional Journey</h3>
-              </div>
-              <div className="space-y-6 text-gray-300">
-                <div>
-                  <h4 className="text-emerald-400 font-bold mb-2 text-lg">Current Role</h4>
-                  <p className="text-xl font-semibold mb-2">Data Analyst & Programme Quality Assurance Officer</p>
-                  <p className="text-sm text-gray-400">Mary's Meals Kenya | June 2024 - Present</p>
-                  <p className="text-sm text-gray-400 mt-2">
-                    Designing and maintaining digital data systems, building automated PowerBI dashboards, 
-                    and ensuring high-quality data for evidence-based decision-making.
-                  </p>
-                </div>
-                <div>
-                  <h4 className="text-emerald-400 font-bold mb-2 text-lg flex items-center gap-2">
-                    <GraduationCap className="w-5 h-5" />
-                    Education
-                  </h4>
-                  <div className="space-y-2 text-sm">
-                    <p className="font-semibold">BSc. Mathematics & Statistics</p>
-                    <p className="text-gray-400">University of Nairobi | 2017-2021</p>
-                    <p className="font-semibold mt-3">Data Science Course</p>
-                    <p className="text-gray-400">Digital Regency | Aug 2025 - Present</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+            {/* Current Role */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="card"
+            >
+              <h3 className="text-2xl font-bold text-gradient mb-6">Current Role</h3>
+              <h4 className="text-xl font-semibold text-teal-400 mb-2">Data Analyst & Programme Quality Assurance Officer</h4>
+              <p className="text-gray-400 text-sm mb-4">Mary's Meals Kenya | June 2024 - Present</p>
+              <p className="text-gray-300 leading-relaxed">
+                Designing and maintaining digital data systems, building automated PowerBI dashboards, and ensuring high-quality data for evidence-based decision-making.
+              </p>
+            </motion.div>
 
-            {/* Right Card - Floating */}
-            <div className="card-float">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="p-3 bg-gradient-to-br from-amber-500 to-emerald-600 rounded-xl">
-                  <Database className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-3xl font-black text-gradient uppercase">Core Expertise</h3>
-              </div>
+            {/* Education */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="card"
+            >
+              <h3 className="text-2xl font-bold text-gradient mb-6">Education</h3>
               <div className="space-y-6">
                 <div>
-                  <h4 className="text-amber-400 font-bold mb-3 text-lg">Data Analysis & Visualization</h4>
-                  <p className="text-gray-300 text-sm leading-relaxed">
-                    Expert in data cleaning, validation, extraction, and automation. Skilled in building 
-                    automated PowerBI dashboards that transform raw data into actionable insights for 
-                    program performance monitoring.
-                  </p>
+                  <h4 className="text-lg font-semibold text-teal-400 mb-1">BSc. Mathematics & Statistics</h4>
+                  <p className="text-gray-400 text-sm">University of Nairobi | 2017-2021</p>
                 </div>
                 <div>
-                  <h4 className="text-amber-400 font-bold mb-3 text-lg">Data Systems & Tools</h4>
-                  <p className="text-gray-300 text-sm leading-relaxed">
-                    Experienced in managing digital data collection tools (KOBO, ODK, SurveyCTO) and 
-                    developing secure data systems with validation rules, access controls, and audit checks.
-                  </p>
-                </div>
-                <div className="flex flex-wrap gap-2 pt-4">
-                  {['PowerBI', 'SQL', 'Python', 'Excel', 'Data Quality'].map((tag) => (
-                    <span key={tag} className="px-4 py-1 bg-emerald-500/20 border border-emerald-500/30 rounded-full text-xs text-emerald-400 font-semibold">
-                      {tag}
-                    </span>
-                  ))}
+                  <h4 className="text-lg font-semibold text-teal-400 mb-1">Data Science Course</h4>
+                  <p className="text-gray-400 text-sm">Digital Regency | Aug 2025 - Present</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Achievements - Unique Grid */}
-      <section className="py-12 sm:py-16 md:py-24 lg:py-32 px-3 sm:px-4 md:px-6 lg:px-8">
-        <div className="container mx-auto max-w-7xl">
-          <div className="text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20">
-            <h2 className="section-title">Key Achievements</h2>
-            <div className="w-24 sm:w-32 h-1 bg-gradient-to-r from-transparent via-amber-500 to-transparent mx-auto mt-3 sm:mt-4" />
+      {/* Core Expertise Section */}
+      <section className="section px-4 bg-gradient-to-b from-transparent to-[#0a0e27]/50">
+        <div className="container mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient">Core Expertise</h2>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-12">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="card"
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <BarChart3 className="w-8 h-8 text-teal-400" />
+                <h3 className="text-2xl font-bold text-gradient">Data Analysis & Visualization</h3>
+              </div>
+              <p className="text-gray-300 leading-relaxed">
+                Expert in data cleaning, validation, extraction, and automation. Skilled in building automated PowerBI dashboards that transform raw data into actionable insights for program performance monitoring.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="card"
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <Database className="w-8 h-8 text-teal-400" />
+                <h3 className="text-2xl font-bold text-gradient">Data Systems & Tools</h3>
+              </div>
+              <p className="text-gray-300 leading-relaxed">
+                Experienced in managing digital data collection tools (KOBO, ODK, SurveyCTO) and developing secure data systems with validation rules, access controls, and audit checks.
+              </p>
+            </motion.div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6">
+          {/* Tech Stack */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="flex justify-center gap-4 flex-wrap"
+          >
+            {['PowerBI', 'SQL', 'Python', 'Excel', 'Data Quality'].map((tech, index) => (
+              <span
+                key={tech}
+                className="px-6 py-3 bg-teal-500/20 text-teal-400 rounded-lg text-lg font-semibold border border-teal-500/30"
+              >
+                {tech}
+              </span>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Key Achievements Section */}
+      <section className="section px-4">
+        <div className="container mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient">Key Achievements</h2>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {[
               {
-                icon: BarChart3,
                 title: 'PowerBI Dashboards',
                 description: 'Developed real-time dashboards visualizing program KPIs and data trends',
-                color: 'from-emerald-500 to-amber-600',
+                icon: BarChart3,
               },
               {
-                icon: Database,
                 title: 'Data Validation Framework',
                 description: 'Created standardized data-cleaning and reconciliation systems improving accuracy',
-                color: 'from-amber-500 to-emerald-600',
+                icon: Award,
               },
               {
-                icon: Zap,
                 title: 'Automation',
                 description: 'Designed Python scripts and Excel macros reducing manual reporting time by 40%',
-                color: 'from-emerald-600 to-amber-500',
+                icon: Zap,
               },
               {
-                icon: Award,
                 title: 'Data Protection',
                 description: 'Strengthened data protection and confidentiality measures across digital systems',
-                color: 'from-amber-600 to-emerald-500',
+                icon: Shield,
               },
-            ].map((achievement) => (
-              <div
-                key={achievement.title}
-                className="card transform-3d group"
-              >
-                <div className={`bg-gradient-to-br ${achievement.color} p-6 rounded-2xl mb-4 relative overflow-hidden`}>
-                  <div className="absolute top-0 right-0 w-24 h-24 bg-white/10 rounded-full -mr-12 -mt-12" />
-                  <achievement.icon className="w-12 h-12 text-white relative z-10 group-hover:scale-110 transition-transform" />
-                </div>
-                <h3 className="text-xl font-black text-gradient mb-3 uppercase">{achievement.title}</h3>
-                <p className="text-gray-300 text-sm leading-relaxed">{achievement.description}</p>
-              </div>
-            ))}
+            ].map((achievement, index) => {
+              const Icon = achievement.icon;
+              return (
+                <motion.div
+                  key={achievement.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="card"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-lg bg-teal-500/20 flex items-center justify-center flex-shrink-0">
+                      <Icon className="w-6 h-6 text-teal-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-teal-400 mb-2">{achievement.title}</h3>
+                      <p className="text-gray-300 leading-relaxed">{achievement.description}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Contact CTA - Unique Design */}
-      <section className="py-12 sm:py-16 md:py-24 lg:py-32 px-3 sm:px-4 md:px-6 lg:px-8 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-amber-500/10" />
-        <div className="container mx-auto max-w-5xl relative z-10">
-          <div className="card-float text-center">
-            <div className="inline-block mb-4 sm:mb-6">
-              <Sparkles className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 text-emerald-400" />
-            </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-gradient mb-4 sm:mb-6 uppercase">
-              Ready to Create
-              <br />
-              <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl">Something Legendary?</span>
+      {/* CTA Section */}
+      <section className="section px-4 bg-gradient-to-b from-transparent to-[#0a0e27]">
+        <div className="container mx-auto max-w-4xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center card"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient">
+              Ready to Create<br />Something Legendary?
             </h2>
-            <p className="text-gray-300 mb-6 sm:mb-8 text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed px-2">
-              Have a data project in mind? Let's transform your data into actionable insights. 
-              Whether it's dashboard development, data analysis, or system automation—let's start a conversation.
+            <p className="text-lg text-gray-300 mb-8 leading-relaxed max-w-2xl mx-auto">
+              Have a data project in mind? Let's transform your data into actionable insights. Whether it's dashboard development, data analysis, or system automation—let's start a conversation.
             </p>
-            <div className="flex flex-wrap justify-center gap-6 mb-8">
-              <a href="mailto:lochongasimon@gmail.com" className="flex items-center gap-2 text-gray-300 hover:text-emerald-400 transition-colors">
-                <Mail className="w-5 h-5" />
-                <span>lochongasimon@gmail.com</span>
-              </a>
-              <a href="tel:0705137509" className="flex items-center gap-2 text-gray-300 hover:text-amber-400 transition-colors">
-                <Phone className="w-5 h-5" />
-                <span>0705137509</span>
-              </a>
-              <div className="flex items-center gap-2 text-gray-300">
-                <MapPin className="w-5 h-5" />
+
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mb-8">
+              <div className="flex items-center gap-3 text-gray-300">
+                <Mail className="w-5 h-5 text-teal-400" />
+                <a href="mailto:lochongasimon@gmail.com" className="hover:text-teal-400 transition-colors">
+                  lochongasimon@gmail.com
+                </a>
+              </div>
+              <div className="flex items-center gap-3 text-gray-300">
+                <Phone className="w-5 h-5 text-teal-400" />
+                <a href="tel:0705137509" className="hover:text-teal-400 transition-colors">
+                  0705137509
+                </a>
+              </div>
+              <div className="flex items-center gap-3 text-gray-300">
+                <MapPin className="w-5 h-5 text-teal-400" />
                 <span>Lodwar, Kenya</span>
               </div>
             </div>
-            <Link href="/contact" className="btn-primary inline-block">
+
+            <Link href="/contact" className="btn-primary inline-flex items-center gap-2">
               Start a Project
-              <ArrowRight className="w-5 h-5 ml-2 inline" />
+              <ArrowRight className="w-5 h-5" />
             </Link>
-          </div>
+          </motion.div>
         </div>
       </section>
-
-        <ScrollToTop />
-      </div>
+    </div>
   );
 }
-
-
-

@@ -1,30 +1,21 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import LoadingScreen from "./components/LoadingScreen";
+import ScrollToTop from "./components/ScrollToTop";
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
-  display: "swap",
-});
-
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-playfair",
-  display: "swap",
-  weight: ["400", "600", "700", "900"],
 });
 
 export const metadata: Metadata = {
-  title: "Simon Ekipetot | Data Analyst Portfolio",
-  description: "Data Analyst, Quality Assurance and Data Scientist with expertise in PowerBI, SQL, Python, and data visualization",
-};
-
-export const viewport = {
-  width: 'device-width',
-  initialScale: 1,
-  maximumScale: 5,
+  title: "Simon Ekipetot | Data Analyst & Quality Assurance",
+  description: "Innovative and analytical Data Analyst, Quality Assurance and Data Scientist with over 2 years of experience in data management, analysis, and program performance monitoring.",
+  icons: {
+    icon: '/icon.png',
+    apple: '/apple-icon.png',
+  },
 };
 
 export default function RootLayout({
@@ -33,16 +24,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body
-        className={`${inter.variable} ${playfair.variable} antialiased`}
-      >
+    <html lang="en">
+      <body className={`${inter.variable} antialiased`}>
         <LoadingScreen />
         {children}
+        <ScrollToTop />
       </body>
     </html>
   );
 }
-
-
-

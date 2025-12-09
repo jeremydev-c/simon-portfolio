@@ -1,88 +1,95 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowLeft, ArrowRight, Sparkles } from 'lucide-react';
-import Link from 'next/link';
 import Navigation from '../components/Navigation';
-import ScrollToTop from '../components/ScrollToTop';
+import { BarChart3, Database, Code, Users } from 'lucide-react';
+
+const projects = [
+  {
+    title: 'PowerBI Dashboards',
+    description: 'Developed real-time dashboards to visualize program KPIs and data trends.',
+    tech: ['PowerBI', 'SQL', 'Excel'],
+    icon: BarChart3,
+    color: 'from-blue-500/20 to-cyan-500/20',
+  },
+  {
+    title: 'Data Validation Framework',
+    description: 'Created standardized data-cleaning and reconciliation systems improving accuracy.',
+    tech: ['Python', 'Excel', 'SQL'],
+    icon: Database,
+    color: 'from-teal-500/20 to-green-500/20',
+  },
+  {
+    title: 'Automation Scripts',
+    description: 'Designed Python scripts and Excel macros that reduced manual reporting time by 40%.',
+    tech: ['Python', 'Excel', 'VBA'],
+    icon: Code,
+    color: 'from-purple-500/20 to-pink-500/20',
+  },
+  {
+    title: 'MEL Collaboration',
+    description: 'Supported monthly and annual data reviews and training sessions for field teams.',
+    tech: ['KOBO', 'ODK', 'SurveyCTO'],
+    icon: Users,
+    color: 'from-orange-500/20 to-red-500/20',
+  },
+];
 
 export default function Work() {
-  const projects = [
-    {
-      id: 1,
-      title: 'Brand Identity Project',
-      category: 'Branding',
-      description: 'Complete visual identity transformation for a leading company.',
-    },
-    {
-      id: 2,
-      title: 'Digital Platform Design',
-      category: 'UI/UX',
-      description: 'User-centered design for a revolutionary digital platform.',
-    },
-    {
-      id: 3,
-      title: 'Creative Campaign',
-      category: 'Marketing',
-      description: 'Multi-channel creative campaign with exceptional results.',
-    },
-  ];
-
   return (
-    <div className="min-h-screen bg-warm-gradient particle-bg">
+    <div className="min-h-screen bg-gradient-to-br from-[#0a0e27] via-[#1a1f3a] to-[#0a0e27]">
       <Navigation activePage="work" />
-
-      <section className="pt-32 pb-20 px-4">
-        <div className="container mx-auto max-w-6xl">
-          <Link href="/" className="inline-flex items-center gap-2 text-gray-400 hover:text-emerald-400 transition-colors mb-8">
-            <ArrowLeft className="w-4 h-4" />
-            <span>Back to Home</span>
-          </Link>
-
-          <div className="text-center mb-16">
-            <h2 className="section-title">My Work</h2>
-            <p className="text-lg text-gray-400 max-w-2xl mx-auto mt-4">
-              A collection of projects that showcase creativity, technical expertise, and exceptional results.
+      <main className="pt-32 px-4 pb-20">
+        <div className="container mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h1 className="text-5xl md:text-6xl font-bold mb-4 text-gradient">Work & Projects</h1>
+            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+              Key projects and achievements in data analysis and quality assurance
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <div
-                key={project.id}
-                className="card group cursor-pointer"
-              >
-                <div className="w-full h-48 bg-gradient-to-br from-emerald-600 via-amber-600 to-emerald-500 mb-6 rounded-lg relative overflow-hidden">
-                  <div className="absolute inset-0 bg-charcoal/30 group-hover:bg-charcoal/10 transition-colors flex items-center justify-center">
-                    <Sparkles className="w-16 h-16 text-white opacity-50 group-hover:opacity-75 transition-opacity" />
-                  </div>
-                  <div className="absolute top-4 right-4">
-                    <span className="px-3 py-1 bg-emerald-600 text-white text-xs font-semibold uppercase">
-                      {project.category}
-                    </span>
-                  </div>
-                </div>
-                <h3 className="text-2xl font-bold text-gradient mb-3 group-hover:text-emerald-400 transition-colors">
-                  {project.title}
-                </h3>
-                <p className="text-gray-400 mb-4">{project.description}</p>
-                <Link
-                  href={`/work/${project.id}`}
-                  className="inline-flex items-center gap-2 text-emerald-400 font-semibold hover:text-amber-400 transition-colors"
+          <div className="grid md:grid-cols-2 gap-8">
+            {projects.map((project, index) => {
+              const Icon = project.icon;
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="card group hover:scale-[1.02] transition-transform"
                 >
-                  View Project
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            ))}
+                  <div className={`bg-gradient-to-br ${project.color} p-6 rounded-lg -m-6 mb-6 flex items-center gap-4`}>
+                    <div className="w-12 h-12 rounded-lg bg-teal-500/20 flex items-center justify-center">
+                      <Icon className="w-6 h-6 text-teal-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-gray-100">{project.title}</h3>
+                    </div>
+                  </div>
+                  <p className="text-gray-300 mb-6 leading-relaxed">{project.description}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tech.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-3 py-1 bg-teal-500/20 text-teal-400 rounded-full text-sm font-medium"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
-      </section>
-
-      <ScrollToTop />
+      </main>
     </div>
   );
 }
-
-
-

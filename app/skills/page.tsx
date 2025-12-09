@@ -1,272 +1,162 @@
 'use client';
 
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useState, useEffect, useRef } from 'react';
-import { 
-  Database, Code, BarChart3, TrendingUp, Brain, Server, 
-  Palette, Users, Target, Lightbulb, Zap, Rocket, 
-  Layers, Globe, Sparkles 
-} from 'lucide-react';
+import { motion } from 'framer-motion';
 import Navigation from '../components/Navigation';
-import ScrollToTop from '../components/ScrollToTop';
+import { BarChart3, Code, Database, TrendingUp, Shield, Award } from 'lucide-react';
+
+const skillCategories = [
+  {
+    title: 'BI & Analytics',
+    icon: BarChart3,
+    skills: [
+      { name: 'PowerBI', level: 95 },
+      { name: 'Excel PowerQuery', level: 90 },
+      { name: 'Data Visualization', level: 92 },
+      { name: 'KPI Monitoring', level: 88 },
+      { name: 'Trend Analysis', level: 85 },
+    ],
+  },
+  {
+    title: 'Programming & Scripting',
+    icon: Code,
+    skills: [
+      { name: 'Python', level: 85 },
+      { name: 'SQL', level: 90 },
+      { name: 'R', level: 75 },
+      { name: 'Excel Macros', level: 88 },
+    ],
+  },
+  {
+    title: 'Data Collection Tools',
+    icon: Database,
+    skills: [
+      { name: 'KOBO Toolbox', level: 95 },
+      { name: 'ODK (OpenDataKit)', level: 92 },
+      { name: 'SurveyCTO', level: 90 },
+      { name: 'CommCare', level: 70 },
+    ],
+  },
+  {
+    title: 'Data Management',
+    icon: Database,
+    skills: [
+      { name: 'Data Cleaning', level: 95 },
+      { name: 'Data Validation', level: 93 },
+      { name: 'Data Extraction', level: 90 },
+      { name: 'Form Design & Logic', level: 88 },
+      { name: 'Data Governance', level: 85 },
+    ],
+  },
+  {
+    title: 'Statistical Analysis',
+    icon: TrendingUp,
+    skills: [
+      { name: 'SPSS', level: 85 },
+      { name: 'STATA', level: 80 },
+      { name: 'Advanced Excel', level: 95 },
+      { name: 'Predictive Modeling', level: 75 },
+    ],
+  },
+  {
+    title: 'Quality Assurance',
+    icon: Shield,
+    skills: [
+      { name: 'Data Quality Control', level: 95 },
+      { name: 'Privacy & Compliance', level: 92 },
+      { name: 'Risk Management', level: 88 },
+      { name: 'MEL Support', level: 90 },
+    ],
+  },
+];
 
 export default function Skills() {
-  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
-  });
-
-  const rotate = useTransform(scrollYProgress, [0, 1], [0, 360]);
-  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 1.2, 1]);
-
-  const skillCategories = [
-    {
-      id: 'bi-analytics',
-      title: "BI & Analytics",
-      icon: BarChart3,
-      color: "from-emerald-500 to-amber-600",
-      skills: [
-        { name: "PowerBI", level: 95, description: "Building automated dashboards and KPI monitoring systems" },
-        { name: "Excel PowerQuery", level: 90, description: "Advanced data manipulation and transformation" },
-        { name: "Data Visualization", level: 92, description: "Transforming raw data into actionable insights" },
-        { name: "KPI Monitoring", level: 88, description: "Real-time performance tracking and reporting" },
-        { name: "Trend Analysis", level: 85, description: "Identifying patterns and forecasting trends" },
-      ]
-    },
-    {
-      id: 'programming',
-      title: "Programming & Scripting",
-      icon: Code,
-      color: "from-amber-500 to-emerald-600",
-      skills: [
-        { name: "Python", level: 85, description: "Data automation, scripting, and analysis" },
-        { name: "SQL", level: 90, description: "Database queries, data extraction, and manipulation" },
-        { name: "R", level: 75, description: "Statistical analysis and data science" },
-        { name: "Excel Macros", level: 88, description: "Automation reducing manual work by 40%" },
-      ]
-    },
-    {
-      id: 'data-collection',
-      title: "Data Collection Tools",
-      icon: Database,
-      color: "from-emerald-600 to-amber-500",
-      skills: [
-        { name: "KOBO Toolbox", level: 95, description: "Form design, logic setup, and data collection" },
-        { name: "ODK (OpenDataKit)", level: 92, description: "Digital data collection and management" },
-        { name: "SurveyCTO", level: 90, description: "Secure data collection and validation" },
-        { name: "CommCare", level: 70, description: "Mobile data collection platform" },
-      ]
-    },
-    {
-      id: 'data-management',
-      title: "Data Management",
-      icon: Server,
-      color: "from-amber-600 to-emerald-500",
-      skills: [
-        { name: "Data Cleaning", level: 95, description: "Ensuring accuracy and consistency across systems" },
-        { name: "Data Validation", level: 93, description: "Identifying irregularities and quality issues" },
-        { name: "Data Extraction", level: 90, description: "Efficient data retrieval and merging" },
-        { name: "Form Design & Logic", level: 88, description: "Creating secure digital data systems" },
-        { name: "Data Governance", level: 85, description: "Privacy-by-design principles and compliance" },
-      ]
-    },
-    {
-      id: 'statistical',
-      title: "Statistical Analysis",
-      icon: Brain,
-      color: "from-emerald-500 to-amber-600",
-      skills: [
-        { name: "SPSS", level: 85, description: "Statistical analysis and data processing" },
-        { name: "STATA", level: 80, description: "Advanced statistical modeling" },
-        { name: "Advanced Excel", level: 95, description: "Complex formulas, pivot tables, and analysis" },
-        { name: "Predictive Modeling", level: 75, description: "Data science and forecasting" },
-      ]
-    },
-    {
-      id: 'quality-assurance',
-      title: "Quality Assurance",
-      icon: Target,
-      color: "from-amber-500 to-emerald-600",
-      skills: [
-        { name: "Data Quality Control", level: 95, description: "Ensuring high-quality data systems" },
-        { name: "Privacy & Compliance", level: 92, description: "Data protection and ethical handling" },
-        { name: "Risk Management", level: 88, description: "Identifying and mitigating data risks" },
-        { name: "MEL Support", level: 90, description: "Monitoring, Evaluation, and Learning systems" },
-      ]
-    },
-  ];
-
   return (
-    <div className="min-h-screen bg-warm-gradient particle-bg" ref={containerRef}>
+    <div className="min-h-screen bg-gradient-to-br from-[#0a0e27] via-[#1a1f3a] to-[#0a0e27]">
       <Navigation activePage="skills" />
-
-      {/* Hero Section - Unique Layout */}
-      <section className="pt-32 pb-20 px-4 relative overflow-hidden">
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <main className="pt-32 px-4 pb-20">
+        <div className="container mx-auto">
           <motion.div
-            className="absolute top-20 left-10 w-96 h-96 bg-emerald-500/20 rounded-full blur-3xl"
-            animate={{
-              scale: [1, 1.2, 1],
-              opacity: [0.3, 0.5, 0.3],
-            }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
-          <motion.div
-            className="absolute bottom-20 right-10 w-96 h-96 bg-amber-500/20 rounded-full blur-3xl"
-            animate={{
-              scale: [1, 1.3, 1],
-              opacity: [0.3, 0.5, 0.3],
-            }}
-            transition={{
-              duration: 5,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
-        </div>
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h1 className="text-5xl md:text-6xl font-bold mb-4 text-gradient">Technical Expertise</h1>
+            <p className="text-xl text-gray-400 mb-2">SKILLS PORTFOLIO</p>
+            <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              Comprehensive expertise in data analysis, BI tools, programming, and data collection systems— delivering exceptional results through technical mastery and innovation
+            </p>
+          </motion.div>
 
-        <div className="container mx-auto max-w-7xl relative z-10">
-          {/* Asymmetric Header */}
-          <div className="grid lg:grid-cols-12 gap-8 mb-20">
-            <div className="lg:col-span-7">
-              <div className="flex items-center gap-3 mb-6">
-                <div>
-                  <Sparkles className="w-10 h-10 text-emerald-400" />
-                </div>
-                <span className="text-sm text-emerald-400 uppercase tracking-widest font-bold">
-                  Technical Expertise
-                </span>
-              </div>
-              <h1 className="text-6xl md:text-8xl font-black mb-6 text-gradient leading-tight">
-                SKILLS
-                <br />
-                <span className="text-5xl md:text-7xl">PORTFOLIO</span>
-              </h1>
-              <p className="text-xl md:text-2xl text-gray-300 max-w-2xl leading-relaxed">
-                Comprehensive expertise in data analysis, BI tools, programming, and data collection systems— 
-                  delivering exceptional results through technical mastery and innovation
-              </p>
-            </div>
-
-            <div className="lg:col-span-5 flex items-center justify-center">
-              <motion.div
-                style={{ rotate, scale }}
-                className="relative w-64 h-64"
-              >
-                <div className="absolute inset-0 border-4 border-emerald-500/30 rounded-full shape-diamond glow-orange" />
-                <div className="absolute inset-4 border-4 border-amber-500/30 rounded-full shape-hexagon" />
-                <div className="absolute inset-8 border-4 border-emerald-500/20 rounded-full" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <Database className="w-16 h-16 text-emerald-400" />
-                </div>
-              </motion.div>
-            </div>
-          </div>
-
-          {/* Unique Skills Grid - Asymmetric Layout */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {skillCategories.map((category, index) => {
+          {/* Skill Categories */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            {skillCategories.map((category, categoryIndex) => {
               const Icon = category.icon;
-              const isEven = index % 2 === 0;
-              
               return (
-                <div
-                  key={category.id}
-                  onMouseEnter={() => setHoveredSkill(category.id)}
-                  onMouseLeave={() => setHoveredSkill(null)}
-                  className={`transform-3d ${isEven ? 'card-tilt' : 'card-float'} ${
-                    hoveredSkill === category.id ? 'scale-105' : ''
-                  }`}
-                  style={{
-                    transform: hoveredSkill === category.id 
-                      ? 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(-10px) scale(1.05)' 
-                      : undefined
-                  }}
+                <motion.div
+                  key={category.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
+                  className="card"
                 >
-                  {/* Category Header */}
-                  <div className={`bg-gradient-to-br ${category.color} p-6 rounded-2xl mb-6 relative overflow-hidden`}>
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16" />
-                    <div className="relative z-10 flex items-center gap-4">
-                      <div className="p-3 bg-white/20 rounded-xl backdrop-blur-sm">
-                        <Icon className="w-8 h-8 text-white" />
-                      </div>
-                      <h3 className="text-2xl font-black text-white uppercase tracking-tight">
-                        {category.title}
-                      </h3>
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-10 h-10 rounded-lg bg-teal-500/20 flex items-center justify-center">
+                      <Icon className="w-6 h-6 text-teal-400" />
                     </div>
+                    <h2 className="text-xl font-bold text-gradient">{category.title}</h2>
                   </div>
-
-                  {/* Skills List with Progress Bars */}
-                  <div className="space-y-6">
+                  <div className="space-y-4">
                     {category.skills.map((skill, skillIndex) => (
-                      <div
-                        key={skill.name}
-                        className="group"
-                      >
+                      <div key={skill.name}>
                         <div className="flex justify-between items-center mb-2">
-                          <span className="text-gray-200 font-semibold text-sm uppercase tracking-wide">
-                            {skill.name}
-                          </span>
-                          <span className="text-emerald-400 font-bold text-sm">
-                            {skill.level}%
-                          </span>
+                          <span className="text-gray-200 font-medium">{skill.name}</span>
+                          <span className="text-teal-400 text-sm font-bold">{skill.level}%</span>
                         </div>
-                        <div className="skill-bar">
+                        <div className="w-full bg-gray-800 rounded-full h-2">
                           <motion.div
-                            className="skill-bar-fill"
                             initial={{ width: 0 }}
-                            animate={{ width: `${skill.level}%` }}
-                            transition={{ duration: 1, delay: skillIndex * 0.1 }}
+                            whileInView={{ width: `${skill.level}%` }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 1, delay: (categoryIndex * 0.1) + (skillIndex * 0.05) }}
+                            className="bg-gradient-to-r from-teal-500 to-cyan-400 h-2 rounded-full"
                           />
                         </div>
-                        {hoveredSkill === category.id && (
-                          <p className="text-xs text-gray-400 mt-2">
-                            {skill.description}
-                          </p>
-                        )}
                       </div>
                     ))}
                   </div>
-
-                  {/* Hover Effect Overlay */}
-                  {hoveredSkill === category.id && (
-                    <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-amber-500/10 rounded-2xl pointer-events-none" />
-                  )}
-                </div>
+                </motion.div>
               );
             })}
           </div>
 
-          {/* Bottom Stats Section */}
-          <div className="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {[
-              { icon: Zap, label: 'Expert Skills', value: '25+' },
-              { icon: Rocket, label: 'Years Experience', value: '2+' },
-              { icon: Layers, label: 'Tools Mastered', value: '15+' },
-            ].map((stat, index) => (
-              <div
-                key={stat.label}
-                className="card text-center group"
-              >
-                <stat.icon className="w-10 h-10 text-emerald-400 mx-auto mb-3 group-hover:scale-110 transition-transform" />
-                <div className="text-4xl font-black text-gradient mb-2">{stat.value}</div>
-                <div className="text-xs text-gray-400 uppercase tracking-widest">{stat.label}</div>
-              </div>
-            ))}
-          </div>
+          {/* Stats */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto"
+          >
+            <div className="card text-center">
+              <Award className="w-10 h-10 text-teal-400 mx-auto mb-3" />
+              <div className="text-4xl font-bold text-teal-400 mb-2">25+</div>
+              <div className="text-sm text-gray-400 uppercase tracking-wider">Expert Skills</div>
+            </div>
+            <div className="card text-center">
+              <TrendingUp className="w-10 h-10 text-teal-400 mx-auto mb-3" />
+              <div className="text-4xl font-bold text-teal-400 mb-2">2+</div>
+              <div className="text-sm text-gray-400 uppercase tracking-wider">Years Experience</div>
+            </div>
+            <div className="card text-center">
+              <Code className="w-10 h-10 text-teal-400 mx-auto mb-3" />
+              <div className="text-4xl font-bold text-teal-400 mb-2">15+</div>
+              <div className="text-sm text-gray-400 uppercase tracking-wider">Tools Mastered</div>
+            </div>
+          </motion.div>
         </div>
-      </section>
-
-      <ScrollToTop />
+      </main>
     </div>
   );
 }
-
-
-

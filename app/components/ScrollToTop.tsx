@@ -1,8 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { ArrowUp } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowUp } from 'lucide-react';
 
 export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
@@ -35,18 +35,13 @@ export default function ScrollToTop() {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0 }}
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 p-4 bg-gradient-to-r from-emerald-600 to-amber-600 text-white rounded-full shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/50 transition-all duration-300 hover:scale-110 z-50"
+          className="fixed bottom-8 right-8 z-50 w-12 h-12 bg-gradient-to-br from-teal-500 to-cyan-500 text-white rounded-full shadow-lg shadow-teal-500/30 flex items-center justify-center hover:shadow-teal-500/50 transition-all duration-300 hover:scale-110"
           aria-label="Scroll to top"
         >
-          <ArrowUp className="w-5 h-5" />
+          <ArrowUp className="w-6 h-6" />
         </motion.button>
       )}
     </AnimatePresence>
   );
 }
-
-
-
-
-
 
