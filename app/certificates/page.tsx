@@ -59,7 +59,7 @@ export default function Certificates() {
       date: '2019 - 2025',
       type: 'pdf',
       filename: 'SIMON_EKIPETOT_DOCUMENTS_CLEAN.pdf',
-      description: 'Comprehensive collection of professional certificates and training documents from various institutions, demonstrating continuous professional development in data analysis and technology (KCPE/KCSE pages removed)',
+      description: 'Comprehensive collection of professional certificates and training documents from various institutions, demonstrating continuous professional development in data analysis and technology',
       topics: [
         'Microsoft PowerBI for Business Intelligence & Data Analytics - AQSKILLS (Jul-Sept 2025)',
         'Data Science Course - Digital Regency (Aug 2025 - Present)',
