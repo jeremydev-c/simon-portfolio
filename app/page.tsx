@@ -160,7 +160,7 @@ export default function Home() {
             >
               <h3 className="text-2xl font-bold text-gradient mb-6">Current Role</h3>
               <h4 className="text-xl font-semibold text-teal-400 mb-2">Data Analyst & Programme Quality Assurance Officer</h4>
-              <p className="text-gray-400 text-sm mb-4">Mary's Meals Kenya | June 2024 - Present</p>
+              <p className="text-gray-400 text-sm mb-4">Mary's Meals Kenya | June 2024 - November 2025</p>
               <p className="text-gray-300 leading-relaxed">
                 Designing and maintaining digital data systems, building automated PowerBI dashboards, and ensuring high-quality data for evidence-based decision-making.
               </p>
