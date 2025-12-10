@@ -78,7 +78,7 @@ export default function About() {
                     <p className="text-gray-300 font-semibold mb-1">Programme Quality Assurance Officer</p>
                     <p className="text-gray-400 text-sm">Mary's Meals Kenya</p>
                   </div>
-                  <span className="text-teal-400 text-sm font-medium mt-2 md:mt-0">June 2024 - Present</span>
+                  <span className="text-teal-400 text-sm font-medium mt-2 md:mt-0">June 2024 - November 2025</span>
                 </div>
                 <ul className="space-y-2 text-gray-300">
                   <li className="flex items-start gap-2">
